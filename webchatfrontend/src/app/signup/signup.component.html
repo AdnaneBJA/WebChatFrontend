@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatvia — Sign Up</title>
+  </head>
+  <body>
+    <div class="signup-wrapper">
+      <header class="signup-header">
+        <a href="#" class="signup-logo">
+          <svg
+            class="logo-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 11.25C4 10.6977 4.44772 10.25 5 10.25H7C7.55228 10.25 8 
+               10.6977 8 11.25V17.75C8 18.3023 7.55228 18.75 7 18.75H5C4.44772 
+               18.75 4 18.3023 4 17.75V11.25Z"
+              fill="currentColor"
+            />
+            <path
+              d="M10 7.25C10 6.69772 10.4477 6.25 11 6.25H13C13.5523 6.25 14 
+               6.69772 14 7.25V17.75C14 18.3023 13.5523 18.75 13 18.75H11C10.4477 
+               18.75 10 18.3023 10 17.75V7.25Z"
+              fill="currentColor"
+            />
+            <path
+              d="M16 14.25C16 13.6977 16.4477 13.25 17 13.25H19C19.5523 13.25 
+               20 13.6977 20 14.25V17.75C20 18.3023 19.5523 18.75 19 
+               18.75H17C16.4477 18.75 16 18.3023 16 17.75V14.25Z"
+              fill="currentColor"
+            />
+          </svg>
+          Chatvia
+        </a>
+        <h2>Sign up</h2>
+        <p>Get your Chatvia account now.</p>
+      </header>
+
+      <div class="signup-card">
+        <form class="signup-form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 
+                     12c-3.866 0-7 1.79-7 4v2h14v-2c0-2.21-3.134-4-7-4Z"
+                  />
+                </svg>
+              </span>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                [(ngModel)]="username"
+                placeholder="Enter username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 
+                     1H3a1 1 0 0 1-1-1V4a1 1 0 0 
+                     1 1-1Zm17.435 2.233-7.06 
+                     5.436a1.5 1.5 0 0 1-1.75 
+                     0l-7.06-5.436A.065.065 0 
+                     0 0 4.5 5.25v13.5h15V5.25a.065.065 
+                     0 0 0-.065-.017Z"
+                  />
+                </svg>
+              </span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 1a5 5 0 0 1 5 
+                     5v4h-2V6a3 3 0 1 
+                     0-6 0v4H7V6a5 
+                     5 0 0 1 5-5Zm-6 
+                     9a2 2 0 0 1 2-2h8a2 
+                     2 0 0 1 2 2v10a2 2 
+                     0 0 1-2 2H8a2 2 0 
+                     0 1-2-2V10Z"
+                  />
+                </svg>
+              </span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit">Sign Up</button>
+          <p class="terms">
+            By registering you agree to the Chatvia
+            <a href="#">Terms of Use</a>
+          </p>
+        </form>
+      </div>
+
+      <p class="signin-text">
+        Already have an account?
+        <a href="#">Signin</a>
+      </p>
+
+      <footer class="signup-footer">
+        © 2025 Chatvia. Crafted by Adnane B.
+      </footer>
+    </div>
+  </body>
+</html>
