@@ -46,6 +46,7 @@ jobs:
       # 6. Deploy to S3
       - name: Deploy to S3
         run: |
-          aws s3 sync ./webchatfrontend/dist/webchatfrontend s3://daveops.co.in --delete
+          aws s3 sync ./webchatfrontend/dist/webchatfrontend s3://webchatfrontend --delete
+
 
     
