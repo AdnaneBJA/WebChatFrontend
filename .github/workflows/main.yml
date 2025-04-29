@@ -52,5 +52,5 @@ jobs:
       # 6. Copy to S3 bucket.
       - name: Copy to S3 Bucket
         run: |
-          aws s3 cp ./dist/browser/* s3://webchatfrontend
+          aws s3 cp ./dist/* s3://webchatfrontend
           
