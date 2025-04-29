@@ -2,54 +2,50 @@ name: Continuous Deployment
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-
-    # every `run:` below is executed under ./webchatfrontend
-    defaults:
-      run:
-        working-directory: webchatfrontend
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Configure AWS Credentials
+      # 1. Configure AWS credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region:            ${{ secrets.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
+      # 2. Checkout Repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 3. Setup Node
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.19.x'
+          node-version: '20'
 
-      - name: Cache npm
+      # 4. Cache npm dependencies
+      - name: Cache npm dependencies
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('webchatfrontend/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.os }}-node-
 
-      - name: Install & Build Angular
+      # 5. Install dependencies and build Angular app
+      - name: Install dependencies and build
+        working-directory: ./webchatfrontend
         run: |
           npm ci
-          npx ng build --configuration production
+          npm run build -- --configuration production
 
-      - name: Inspect dist folder
-        run: |
-          echo "Contents of dist/:"
-          ls -R dist
-
+      # 6. Deploy to S3
       - name: Deploy to S3
         run: |
-          # replace <your-app-name> with the actual folder under dist/
-          aws s3 sync dist/<your-app-name> \
-            s3://webchatfrontend \
-            --delete \
-            --acl public-read
+          aws s3 sync ./webchatfrontend/dist/webchatfrontend s3://daveops.co.in --delete
+
+    
