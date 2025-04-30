@@ -10,4 +10,10 @@ export class HttpService {
   registerUser(user: any) {
     return this.http.post('http://35.175.111.200:8080/register', user);
   }
+
+  loginUser(user: any) {
+    return this.http.post('http://localhost:8080/login', user, {
+      responseType: 'text',
+    });
+  }
 }

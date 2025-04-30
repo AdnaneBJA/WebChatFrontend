@@ -8,9 +8,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { GeneralChatComponent } from './general-chat/general-chat.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, ChatboxComponent, SidebarComponent],
+  declarations: [
+    AppComponent,
+    SignupComponent,
+    ChatboxComponent,
+    SidebarComponent,
+    GeneralChatComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
