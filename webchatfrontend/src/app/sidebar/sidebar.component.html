@@ -34,7 +34,15 @@
 
       <!-- Middle items -->
       <div class="sidebar-middle">
-        <div class="nav-item user-info" data-label="Profile">
+        <div
+          class="nav-item user-info"
+          [ngClass]="{
+            active: activePage === 'profile',
+            'profile-active': activePage === 'profile'
+          }"
+          (click)="navigateTo('/profile')"
+          data-label="Profile"
+        >
           <span class="tooltip">Profile</span>
           <svg
             class="image"
@@ -47,7 +55,12 @@
             ></path>
           </svg>
         </div>
-        <div class="nav-item chat-box active" data-label="Chats">
+        <div
+          class="nav-item chat-box"
+          [ngClass]="{ active: activePage === 'chats' }"
+          (click)="navigateTo('/chatbox')"
+          data-label="Chats"
+        >
           <span class="tooltip">Chats</span>
           <svg
             class="image"
@@ -60,7 +73,12 @@
             ></path>
           </svg>
         </div>
-        <div class="nav-item group-box" data-label="Groups">
+        <div
+          class="nav-item group-box"
+          [ngClass]="{ active: activePage === 'groups' }"
+          (click)="navigateTo('/groups')"
+          data-label="Groups"
+        >
           <span class="tooltip">Groups</span>
           <svg
             class="image"
@@ -77,6 +95,7 @@
 
       <!-- Bottom avatar -->
       <div class="avatar-logo"></div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
     </div>
 
     <script src="script.js"></script>

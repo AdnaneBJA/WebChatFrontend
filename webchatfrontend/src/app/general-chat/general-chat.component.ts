@@ -31,7 +31,7 @@ export class GeneralChatComponent implements OnInit {
       (connected) => {
         this.isConnected = connected;
         console.log('VALUE OF CONNECTED: ' + this.isConnected);
-        console.log('You are connected with user ID: ' + this.userID);
+        console.log('JWT TOKEN:' + localStorage.getItem('jwtToken'));
         if (this.isConnected) {
           this.connect();
         }
@@ -52,7 +52,7 @@ export class GeneralChatComponent implements OnInit {
             message: message.message,
             text: message.message,
             senderID: message.senderID,
-            sender: isCurrentUser ? 'You' : 'User ' + message.senderID,
+            sender: message.username,
             time: message.time,
             isCurrentUser: isCurrentUser,
           };
@@ -73,6 +73,7 @@ export class GeneralChatComponent implements OnInit {
       message: this.newMessage,
       senderID: this.userID,
       time: new Date().toLocaleTimeString(),
+      username: localStorage.getItem('username'),
     };
 
     console.log(sentMessageToBackend);

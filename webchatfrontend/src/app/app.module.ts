@@ -10,6 +10,8 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GeneralChatComponent } from './general-chat/general-chat.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { LoginComponent } from './login/login.component';
     SidebarComponent,
     GeneralChatComponent,
     LoginComponent,
+    HomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

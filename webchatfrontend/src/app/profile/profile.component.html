@@ -1,0 +1,58 @@
+<div class="app-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h2>My Profile</h2>
+      </div>
+
+      <div class="profile-content">
+        <div class="avatar-section">
+          <div class="avatar-container" (click)="changeAvatar()">
+            <img
+              [src]="user.avatar"
+              alt="Profile Avatar"
+              class="profile-avatar"
+            />
+            <div class="avatar-overlay">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                ></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <p class="avatar-hint">Click to change</p>
+        </div>
+
+        <div class="profile-details">
+          <div class="detail-item">
+            <label>Username</label>
+            <div class="detail-value">{{ user.username }}</div>
+          </div>
+
+          <div class="detail-item">
+            <label>Email</label>
+            <div class="detail-value">{{ user.email }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="edit-button">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
