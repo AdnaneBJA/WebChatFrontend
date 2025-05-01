@@ -60,4 +60,13 @@ export class HttpService {
       { headers }
     );
   }
+
+  getAllMessages() {
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get(`http://localhost:8080/messages`, { headers });
+  }
 }

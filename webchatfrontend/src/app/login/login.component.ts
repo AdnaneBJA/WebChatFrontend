@@ -46,7 +46,7 @@ export class LoginComponent {
           }
         );
 
-        this.router.navigate(['/chatbox']);
+        this.router.navigate(['/profile']);
       },
       (err) => {
         console.log('Login error: ', err);

@@ -17,31 +17,37 @@
       <div *ngIf="message.isCurrentUser" class="message-right">
         <div class="message-content">
           <div class="message-bubble user-bubble">
-            {{ message.text }}
+            {{ message.message }}
           </div>
           <div class="message-info">
             <span class="message-time">{{ message.time }}</span>
           </div>
         </div>
         <div class="user-info">
-          <span class="sender-name">{{ message.sender }}</span>
-          <div class="avatar-circle admin">
-            <span>A</span>
-          </div>
+          <span class="sender-name">{{ message.username }}</span>
+          <img
+            [src]="message.avatar"
+            alt="avatar"
+            class="avatar-circle admin"
+            style="object-fit: cover"
+          />
         </div>
       </div>
 
       <!-- Left aligned (other user) -->
       <div *ngIf="!message.isCurrentUser" class="message-left">
         <div class="user-info">
-          <div class="avatar-circle general">
-            <span>G</span>
-          </div>
-          <span class="sender-name">{{ message.sender }}</span>
+          <img
+            [src]="message.avatar"
+            alt="avatar"
+            class="avatar-circle general"
+            style="object-fit: cover"
+          />
+          <span class="sender-name">{{ message.username }}</span>
         </div>
         <div class="message-content">
           <div class="message-bubble other-bubble">
-            {{ message.text }}
+            {{ message.message }}
           </div>
           <div class="message-info">
             <span class="message-time">{{ message.time }}</span>

@@ -1,4 +1,3 @@
-/* Container layout */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -8,7 +7,6 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* Header styles */
 .header {
   display: flex;
   align-items: center;
@@ -57,7 +55,6 @@
   display: inline-block;
 }
 
-/* Chat messages area */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -71,7 +68,6 @@
   margin-bottom: 24px;
 }
 
-/* Message styles - right aligned (current user) */
 .message-right {
   display: flex;
   justify-content: flex-end;
@@ -80,7 +76,6 @@
   max-width: 80%;
 }
 
-/* Message styles - left aligned (other user) */
 .message-left {
   display: flex;
   justify-content: flex-start;
@@ -136,7 +131,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* User info styling */
 .user-info {
   display: flex;
   align-items: center;
@@ -170,6 +164,7 @@
   font-weight: 600;
   font-size: 15px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  object-fit: cover;
 }
 
 .avatar-circle.admin {
@@ -182,7 +177,6 @@
   color: #7269ef;
 }
 
-/* Message input area */
 .message-input-container {
   display: flex;
   align-items: center;
