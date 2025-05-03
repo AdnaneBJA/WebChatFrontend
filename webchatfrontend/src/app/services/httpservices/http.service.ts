@@ -12,7 +12,7 @@ export class HttpService {
   }
 
   loginUser(user: any) {
-    return this.http.post('http://localhost:8080/login', user, {
+    return this.http.post('http://35.175.111.200:8080/login', user, {
       responseType: 'text',
     });
   }
@@ -23,7 +23,7 @@ export class HttpService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.post('http://localhost:8080/retriveUserInfo', user, {
+    return this.http.post('http://35.175.111.200:8080/retriveUserInfo', user, {
       headers,
     });
   }
@@ -34,7 +34,7 @@ export class HttpService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(`http://localhost:8080/users`, { headers });
+    return this.http.get(`http://35.175.111.200:8080/users`, { headers });
   }
 
   loadProfilePicture(id: string) {
@@ -43,10 +43,13 @@ export class HttpService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(`http://localhost:8080/users/${id}/profile-picture`, {
-      headers,
-      responseType: 'blob', // for images
-    });
+    return this.http.get(
+      `http://35.175.111.200:8080/users/${id}/profile-picture`,
+      {
+        headers,
+        responseType: 'blob', // for images
+      }
+    );
   }
 
   updateProfilePicture(id: any, formData: FormData) {
@@ -55,7 +58,7 @@ export class HttpService {
       Authorization: `Bearer ${token}`,
     });
     return this.http.post(
-      `http://localhost:8080/users/${id}/profile-picture`,
+      `http://35.175.111.200:8080/users/${id}/profile-picture`,
       formData,
       { headers }
     );
@@ -67,6 +70,6 @@ export class HttpService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(`http://localhost:8080/messages`, { headers });
+    return this.http.get(`http://35.175.111.200:8080/messages`, { headers });
   }
 }
